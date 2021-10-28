@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Movie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" >                            
+</head>
+<body>
+    
+        <form action="{% url 'movie_create' %}" method="POST">
+        <div class ="flex-row">
+            {% csrf_token %}
+            <div class="header">
+                <h1> Create a New Movie </h1>
+           </div>
+
+                <label for= "title"> Title: </label>
+                <input type="text" name="title" id="title">
+
+                <label for="date_released" > Date Released: </label>
+                <input type="date" name="date_released" id="date_released">
+            <div class="buto">
+                <button class="Submit"> Submit </button> 
+            </div>    
+            
+        </div>
+        </form>
+   
+</body>
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+    
+    html,body{ height: 100%;}
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+  
+        background-image: linear-gradient(-225deg, #050706 0%, #2c0e0e 100%);
+        background-image: linear-gradient(to top, #203332 0%, #15191f 100%);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 600px;
+        min-height: 200px;
+        height: auto;
+        border-radius: 5px;
+        margin: 5%;
+        box-shadow: 0 9px 50px hsla(0, 0%, 100%, 0.31);
+        padding: 2%;
+        background-color: white;
+    
+    }
+    
+    h1{
+        display: flex;
+        align-items: center;
+        padding-bottom: 3px;
+        font-size: 250%;
+        font-family: 'Playfair Display', serif;
+        color:rgb(3, 12, 37);
+    }
+
+
+    label{
+        display: inline;
+        align-items:center;
+        justify-content:center;
+        position:relative;
+        padding-left: 7px;
+        font-family:'Abel', sans-serif;
+        font-size: 120%;
+        color: black;
+    }
+
+
+    button {
+    display: inline-block;
+    color: white;
+    font-family:'Abel', sans-serif;
+    font-size: 1em;
+    
+  
+    width: 280px;
+    height: 50px;
+  
+    padding: 0 20px;
+    background: rgb(3, 12, 37);
+    border-radius: 5px;
+    
+    outline: none;
+    border: none;
+    margin: 7% auto;
+    letter-spacing: 0.05em;
+    }
+
+    .buto{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+</style>
+</html>

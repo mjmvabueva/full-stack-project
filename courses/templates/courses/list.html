@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses List</title>
+</head>
+<body>
+    <form>
+    <div class="header2">    
+        <h1> Courses List </h1>
+    </div>  
+   
+          
+        <ul>
+            {% for course in courses %}
+                <li>
+                <a href="{% url 'students_list' course.id %}">{{ course.name }} </a>
+        
+                </li>
+            {% endfor %}
+        </ul>
+     
+    </form>
+</body>
+<style>
+     @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+    
+    html,body{ height: 100%;}
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        font-family: 'Vibur', cursive;
+  
+        background-image: linear-gradient(-225deg, #1a332e 0%, #65a4eb 100%);
+        background-image: linear-gradient(to top, #0b2b29 0%, #a8c3eb 100%);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 450px;
+        min-height: 330px;
+        height: auto;
+        border-radius: 5px;
+        margin: 2% auto;
+        box-shadow: 0 9px 50px hsla(0, 0%, 100%, 0.31);
+        padding: 2%;
+        background-image: linear-gradient(-270deg, #05151f 50%, #fdfdfd 50%);
+    
+    }
+    
+    h1{
+        padding-right: 30%;
+        font-size: 250%;
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        color:white;
+    }
+
+    ul{
+        display: inline;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding-left: 15%;
+        font-family:'Abel', sans-serif;
+        font-size: 130%;
+    }
+
+    a{
+        color: #000;
+        text-decoration: none;
+    }
+    
+    a:hover{
+        color: white;
+        background-color: #05151f 
+        
+    }
+    
+
+
+</style>
+</html>

@@ -1,0 +1,172 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title> Course Student List</title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+ </head>
+ <body>
+    <h1> Student List for {{ course.name }}</h1>
+    <div>
+    {% if students %}
+        <ul id="student_list">
+            {% for student in students %}
+            <li>
+                {{ student.last_name }}, {{ student.first_name }}
+            </li>
+            {% endfor %}
+        </ul> 
+    {% else %}
+        No students for this course yet
+    {% endif %}   
+        
+    </div>
+    
+    <form method="POST" id="create_student_form">
+        {% csrf_token %}
+        <div class="lead">
+            <h1>Add student</h1> 
+        </div>
+       
+       <div class="info">
+            <label for ="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name">
+            <br /><br />
+            <label for ="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name">
+       </div>
+
+        <button type="submit" id="form_submit"> Submit </button>
+    </form>
+
+    <script type="text/javascript">
+        var url = window.location.href
+        var token = '{{csrf_token}}'
+        var list = $('#student_list')
+
+        $('#form_submit').on('click', function(e) {
+            e.preventDefault();
+            var first_name = $('#first_name').val()
+            var last_name = $('#last_name').val()
+
+            $.ajax({
+                headers: {"X-CSRFToken": token},
+                url: url,
+                method: 'POST',
+                data: {
+                    'first_name': first_name,
+                    'last_name': last_name
+                }
+            }).done(function(data) {
+                list.append('<li>' + data.last_name + ', ' + data.first_name + '</li>')
+                $('#first_name').val('')
+                $('#last_name').val('')
+            })
+        })
+    </script>
+</body>
+
+<style>
+ @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+    
+    html,body{ height: 100%;}
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        font-family: 'Abel', sans-serif;
+  
+        background-image: linear-gradient(-225deg, #1a332e 0%, #65a4eb 100%);
+        background-image: linear-gradient(to top, #0b2b29 0%, #a8c3eb 100%);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+    form {
+        display: inline;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        width: 320px;
+        min-height: 330px;
+        height: auto;
+        border-radius: 5px;
+        border-left: 10%;
+        margin: 2% auto;
+        box-shadow: 0 9px 50px hsla(0, 0%, 100%, 0.31);
+        padding: 2%;
+        background-color: white;
+        border-left: black 5px;
+    }
+    
+    label{
+        display: inline;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding-top: 10%;
+        font-family:'Abel', sans-serif;
+        font-size: 120%;
+        color: black;
+        
+    }
+    
+    .lead{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        font-size: 110%;
+    }
+    .info{
+        display: inline-block;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    
+    h1{
+        padding-bottom: 3px;
+        font-size: 250%;
+        font-family: 'Playfair Display', serif;
+        color:rgb(3, 12, 37);
+    }
+
+    button {
+    display: inline-block;
+    color: white;
+    font-family:'Abel', sans-serif;
+    font-size: 1em;
+    
+  
+    width: 280px;
+    height: 50px;
+  
+    padding: 0 20px;
+    background: rgb(3, 12, 37);
+    border-radius: 5px;
+    
+    outline: none;
+    border: none;
+  
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s linear;
+    
+    margin: 7% auto;
+    letter-spacing: 0.05em;
+    }
+    
+    div{
+        font-size: 120%;
+    }
+
+   
+
+
+
+</style>
+</html>

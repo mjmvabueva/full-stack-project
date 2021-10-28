@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies List</title>
+</head>
+<body>
+    <form>
+        <h1> Movies List </h1>
+     
+    <div class='vibe'>    
+    <ul>
+        {% for movie in movies %}
+            <li>
+                <a href="{% url 'movie_detail' movie.id %}">{{ movie.title }} </a>
+
+            </li>
+        {% endfor %}
+    </ul>
+        <h3> <a href="{% url 'movie_create' %}"> Create Movie</a></h3>
+    </div>  
+    </form>
+
+        
+     
+</body>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+    
+html,body{ height: 100%;}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    font-family: 'Vibur', cursive;
+
+    background-image: linear-gradient(-225deg, #050706 0%, #2c0e0e 100%);
+    background-image: linear-gradient(to top, #203332 0%, #15191f 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    min-height: 300px;
+    height: auto;
+    border-radius: 5px;
+    box-shadow: 0 9px 50px hsla(0, 0%, 100%, 0.31);
+    padding: 2%;
+    background-image: linear-gradient(-270deg, #05151f 50%, #ffffff 50%);
+
+}
+
+h1{
+    padding-right: 30%;
+    margin-right: 3px;
+    font-size: 250%;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color:white;
+}
+
+h3{
+    display: inline-block;
+    align-items: center;
+    position: relative;
+    padding-right: 20%;
+    font-size: 150;
+    font-style: italic;
+}
+
+ul{
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-left: 0%;
+    font-family:'Abel', sans-serif;
+    font-size: 130%;
+   
+}
+
+a{
+    font-family: 'Abel', sans-serif;
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    color: white;
+    background-color: #05151f 
+    
+}
+
+
+
+</style>
+</html>

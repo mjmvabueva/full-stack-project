@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie | {{ movie.title }} </title>
+</head>
+<body>
+    
+     <h1>Displaying details for {{ movie.title }}</h1>
+    
+    <form>
+    <label>
+        <h2>Date Released: {{ movie.date_released}}</h2>
+        <h2>Date Created: {{ movie.date_created}}</h2>
+        <a href="{% url 'movie_update' movie.id %}"> Update Movie </a>
+    </label>
+    <div class='dR'>    
+        
+    </div>
+
+    </form>
+</body>
+</html>
+<style>
+
+    @import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+        
+        html,body{ height: 100%;}
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+      
+            background-image: linear-gradient(-225deg, #050706 0%, #2c0e0e 100%);
+            background-image: linear-gradient(to top, #203332 0%, #15191f 100%);
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 350px;
+            min-height: 200px;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 9px 50px hsla(0, 0%, 100%, 0.31);
+            padding: 2%;
+            background-color: #05151f ;
+        
+        }
+        
+        h1{
+            display: flex;
+            align-items: center;
+            padding-bottom: 3px;
+            font-size: 250%;
+            font-family: 'Playfair Display', serif;
+            color:white;
+        }
+    
+    
+        label{
+            display: inline-block;
+            align-items:center;
+            justify-content:center;
+            position:relative;
+            padding-left: 7px;
+            font-family:'Abel', sans-serif;
+            font-size: 120%;
+            color: white;
+        }
+
+        
+    a{
+        font-family: 'Abel',sans-serif;
+        font-style: italic;
+        text-decoration: none;
+        color: white;
+    }
+
+    a:hover{
+        color: #05151f ;
+        background-color: white;
+    
+}
+    
+    
+    
+    </style>
